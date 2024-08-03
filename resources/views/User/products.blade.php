@@ -447,19 +447,21 @@
             let bav = parseFloat(buyamount.value.replaceAll(" ",""))
             let tpv = parseFloat(targetPrice.value.replaceAll(" ",""))
             if(currencytb.value == firstcurrency.value){
-                sellAmount.value = tpv * bav
+                sellAmount.value = (tpv * bav).toFixed(2);
             }else{
-                sellAmount.value = bav / tpv
+                sellAmount.value = (bav / tpv).toFixed(2);
             }
+            formatNumber(sellAmount);
         });
         sellAmount.addEventListener('input', function() {
             let sav = parseFloat(sellAmount.value.replaceAll(" ",""))
             let tpv = parseFloat(targetPrice.value.replaceAll(" ",""))
             if(currencytb.value == firstcurrency.value){
-                buyamount.value = sav / tpv
+                buyamount.value = (sav / tpv).toFixed(2);
             }else{
-                buyamount.value = tpv * sav
+                buyamount.value = (tpv * sav).toFixed(2);
             }
+            formatNumber(buyamount);
         });
 
         document.getElementById('resetButton').addEventListener('click', function() {
